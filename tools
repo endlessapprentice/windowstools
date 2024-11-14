@@ -1,0 +1,45 @@
+Angry IP Scanner 3.1 Revisar las configuraciones para tratar de hacerlo rápido pero potente.
+MegaPing 3.2 De esta herramienta hay que obtener rápidamente la lista de los hosts para pasarlos al port scanner.
+NetScan Tools 3.2 Módulos a revisar: Ping Scanner, Port Scanner (Configuraciones y agregar los hosts rápidamente), 
+Colasoft Packet Builder
+NetBIOS Enumerator, hay que configurar las ips rangos no muy grandes de preferencia. Revisar la sección de settings!
+SoftPerfect Network Scanner en Options y Remote SNMP y select IP range.
+ADExplorer exe de Sysinternals connect to  IP, en el DC en Users
+NetScanTools -> Manual Tools -> SMB Scanner -> Edit Target List (generar el rango o añadir IP por IP), (también se pueden agregar login credentials), sobre la IP clic derecho y view shares.
+NetScanTools -> Manual Tools -> nix RPC Info -> agregar ip y dump portmap.
+Global Network Inventory -> Single address scan -> hostname or IP -> connect with credentials Arroja bastantes detalles!
+Advanced IP Scanner (arreglar rango) y start, sobre cada host clic derecho y se despliegan varias opciones.
+L0phCrack7 -> Windows -> Remote Machine -> Select IP and Use Specific User Credentials -> Thorough Password Audit 
+Steganography with white spaces: Para esconderlo -> Se crea un archivo txt, utilizando snow -> snow -c -m “Mensaje a esconder” -p “password” archive.txt nuevo-archivo.txt Para descifrarlo: snow -c -p “password”  nuevo-archivo.txt
+OpenStego: Para ocultar/extraer mensjaes en archivos como imágenes.
+Con StegOnline: https://georgeom.net/StegOnline puedes ocultar/extraer archivos.
+Vega y NStalker
+Cryptoforge: extension .cfe o .cfd
+BCTextEncoder
+CrypTool
+
+httprecon
+Sniffing
+Cain -> Start/Stop Sniffer -> Sniffing tab -> + Simbol (MAC Address Scanner) -> Seleccionar All hosts and All Tests and OK. Luego en APR tab -> + Simbol (ARP Poisoning Routing) (en ell ado izquierdo debe estar el router y en el derecho todos los hosts a los que se le interceptará la comunicación) y Start/Stop APR.
+En Wireshark se pueden buscar strings de la siguiente forma: Al capturar el paquete aplicar el filtro http (como http.request.method == POST) -> Edit -> Find Packet -> en la barra de herramientas seleccionar string, Packet details, Narrow eingresar el string y find.
+Comandos útiles en windows:
+•	| tasklist
+•	Taskkill /PID /F
+•	net user (usuario opcional)
+•	net user usuario /Add
+•	net localgroup Administrators usuario /Add
+
+Auditpol commands (CMD as admin):
+auditpol /get /category:*
+auditpol /set /category:”system”,”account logon” /success:enable /failure:enable 
+auditpol /clear /y
+Clear_Event_Viewer_Logs.bat para borrar evidencia (como admin).
+Lista de logs: wevtutil el [param como: ] -> Para borrar los logs de un evento específico: wevtutil cl [param (los de la lista con “wevtutil el”)]
+Para eliminar evidencias también está: cipher /w:C: (reescribe datos para borrarlos).
+Explotación de CVE-2021-4034 pkexec.
+Dentro del repositorio:
+make  ./cve-2021-4034 y listo eres root, esto es una explotación local para la escalación de privilegios
+Stickey Keys (requiere privilegios de system):
+use post/windows/manage/stickey_keys -> set session (el id de la session con system) -> exploit (no funciona muy bien)
+Notas
+En Burp usar cluster bomb para ataques a un par de credenciales algo como usernames.txt puede servir.
